@@ -1,0 +1,12 @@
+provision:
+    how: virtual
+    image: fedora
+# uncomment, if custom binaries needed
+#prepare:
+#    how: install
+#    copr: zmiklank/charset_test
+#    package: [mariadb-server,mariadb-connector-c]
+discover:
+    how: fmf
+execute:
+    how: tmt

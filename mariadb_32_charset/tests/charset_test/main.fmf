@@ -1,0 +1,28 @@
+summary: Test of the default charset in mariadb-connector-c.
+description: |
+    Description:
+
+    The goal of this test is to verify, that the change of version of
+    the mariadb-connector-c component from 3.1 to 3.2 does not break
+    access to mariadb, which has the mariadb-connector-c compiled inside.
+
+    Among other, the version bump of mariadb-conenctor-c to 3.2 includes change
+    of the default charset to utf8mb4.
+    Test checks, if the change breaks something. Test should be run with every
+    relevant package's version bump.
+
+
+contact:
+- Zuzana Miklankova <zmiklank@redhat.com>
+test: ./runbeakertest.sh
+framework: beakerlib
+require:
+- url: https://github.com/beakerlib/database
+  name: /mariadb
+  ref: master
+- mariadb-devel
+- make
+- gcc
+- policycoreutils
+duration: 2m
+tag: TestCaseCharset
