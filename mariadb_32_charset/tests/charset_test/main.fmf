@@ -20,7 +20,6 @@ require:
 - url: https://github.com/beakerlib/database
   name: /mariadb
   ref: master
-- mariadb-devel
 - make
 - gcc
 - policycoreutils

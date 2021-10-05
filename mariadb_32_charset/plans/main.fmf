@@ -2,10 +2,15 @@ provision:
     how: virtual
     image: fedora
 # uncomment, if custom binaries needed
-#prepare:
-#    how: install
-#    copr: zmiklank/charset_test
-#    package: [mariadb-server,mariadb-connector-c]
+# prepare:
+#     how: install
+#     copr: zmiklank/charset_test_mariadb_10.6_conn-c_3.2
+#     package: [mariadb-server-10.6.4,mariadb-connector-c, mariadb-10.6.4, mariadb-devel-10.6.4]
+#
+prepare:
+    how: install
+    copr: zmiklank/charset_test
+    package: [mariadb-server-10.5.12-3.fc34, mariadb-connector-c, mariadb-10.5.12-3.fc34, mariadb-devel-10.5.12-3.fc34]
 discover:
     how: fmf
 execute:
