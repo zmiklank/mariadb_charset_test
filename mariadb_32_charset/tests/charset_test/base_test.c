@@ -10,8 +10,8 @@
 
 static void show_mysql_error(MYSQL *mysql)
 {
-    printf("Error(%d) [%s] \"%s\"", mysql_errno(mysql), mysql_sqlstate(mysql),
-            mysql_error(mysql));
+	printf("Error(%d) [%s] \"%s\"", mysql_errno(mysql), mysql_sqlstate(mysql),
+		mysql_error(mysql));
 	exit(1);
 }
 
@@ -41,29 +41,29 @@ int insert_to_table(MYSQL* mysql, char* id, char* name, char* surname)
 {
 	char command[100];
 	sprintf(command, "INSERT INTO "TABLE" VALUES ('%s', '%s', '%s')", id, name, surname);
-    if (mysql_query(mysql,command))
-        show_mysql_error(mysql);
+	if (mysql_query(mysql,command))
+		show_mysql_error(mysql);
 }
 
 void test_write_db()
 {
 	MYSQL* mysql;
-    mysql = mysql_init(NULL);
-    if (mysql_real_connect(mysql, NULL, USER, PASS, DATABASE, 0, NULL, 0) == NULL)
-        show_mysql_error(mysql);
+	mysql = mysql_init(NULL);
+	if (mysql_real_connect(mysql, NULL, USER, PASS, DATABASE, 0, NULL, 0) == NULL)
+		show_mysql_error(mysql);
 	insert_to_table(mysql, "1", "Čeněk Řehák", "z Žabovřesek");
 	insert_to_table(mysql, "2", "Cenek Rehak", "z Zabovresek");
-    mysql_close(mysql);
+	mysql_close(mysql);
 }
 
 void test_read_db()
 {
 	MYSQL* mysql;
-    mysql = mysql_init(NULL);
-    if (mysql_real_connect(mysql, NULL, USER, PASS, DATABASE, 0, NULL, 0) == NULL)
-        show_mysql_error(mysql);
+	mysql = mysql_init(NULL);
+	if (mysql_real_connect(mysql, NULL, USER, PASS, DATABASE, 0, NULL, 0) == NULL)
+		show_mysql_error(mysql);
 	print_table(mysql);
-    mysql_close(mysql);
+	mysql_close(mysql);
 }
 int main(int argc, char *argv[])
 {
