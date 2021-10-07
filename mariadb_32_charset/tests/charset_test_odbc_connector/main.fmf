@@ -14,18 +14,17 @@ description: |
 
 contact:
 - Zuzana Miklankova <zmiklank@redhat.com>
-test: ./run_mariadb-connector-c_test.sh
+test: ./run_mariadb-connector-odbc_test.sh
 framework: beakerlib
 require:
 - url: https://github.com/beakerlib/database
   name: /mariadb
   ref: master
-- make
-- gcc
 - policycoreutils
 #uncomment, if default mariadb packages needed
 - mariadb-devel
 - mariadb-server
 - mariadb
+- mariadb-connector-odbc
 duration: 2m
 tag: TestCaseCharset
